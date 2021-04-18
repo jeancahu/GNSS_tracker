@@ -1,0 +1,8 @@
+#!/bin/bash
+
+virtualenv py_gnss_server
+source ./py_gnss_server/bin/activate
+
+pip install paho-mqtt
+
+exit 0
