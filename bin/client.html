@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+        <title>GNSS-TRACKER</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" integrity="sha512-nlrGqnXyDyswl/oRH13cQUfr7ZsQs0XxVAZP0Ygs1hzJcq0PiBgTzqnI3YSEFosXOPznrul6lDYcwVvc7gX0UA==" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+        Hello World
+
+    </body>
+    <footer>
+
+        <script>
+
+         function onConnect() {
+             console.log("client connected");
+             message = new Paho.MQTT.Message("client js connected");
+             message.destinationName = "test/test1";
+             client.send(message);
+         }
+
+         var client = new Paho.MQTT.Client('10.8.0.1', 9001, "Client_JS_1");
+         console.log("Connecting to 10.8.0.1 on port 9001");
+         client.connect({
+             timeout: 3,
+             onSuccess:onConnect
+         });
+
+         client.disconnect();
+        </script>
+
+    </footer>
+</html>
