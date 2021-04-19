@@ -4,7 +4,7 @@
 
     apt update
     apt upgrade
-    apt install mosquitto mosquitto-clients
+    apt install mosquitto mosquitto-clients # MQTT v3.1
 
 ## Test
 
