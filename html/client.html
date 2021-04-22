@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+        <title>GNSS-TRACKER</title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+        <!-- Mosquitto Paho lib -->
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"
+                integrity="sha512-nlrGqnXyDyswl/oRH13cQUfr7ZsQs0XxVAZP0Ygs1hzJcq0PiBgTzqnI3YSEFosXOPznrul6lDYcwVvc7gX0UA=="
+                crossorigin="anonymous">
+        </script>
+
+        <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
+        <script src="https://unpkg.com/elm-pep"></script>
+
+        <!-- OpenLayers library (https://openlayers.org/download/) we use to show the map and draw on it -->
+        <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js">
+        </script>
+
+        <!-- OpenLayers style lib -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css">
+
+        <style type="text/css">
+         html, body {
+             width: 100%;
+             height: 100%;
+             margin: 0;
+         }
+         #map-view {
+             width: 100%;
+             height:100%;
+         }
+        </style>
+    </head>
+    <body>
+
+        <div id="map-view">
+        </div>
+
+    </body>
+    <footer>
+        <script src="../js/map_main.js"></script>        <!-- map script -->
+        <script src="../js/mqtt.js"></script>            <!-- mqtt connection -->
+    </footer>
+</html>
