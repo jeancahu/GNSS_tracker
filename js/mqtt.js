@@ -17,7 +17,14 @@ function showPosition(position) {
     console.log(geoposition);
     message = new Paho.MQTT.Message("client_id: "+client_id+", "+geoposition);
     message.destinationName = "test/test1";
-    client.send(message);
+    try {
+        client.send(message);
+    } catch (error) {
+        console.error(error);
+        console.log("reconnect")
+        client.connect()
+        sleep(5)
+    }
 }
 
 function onConnect() {
