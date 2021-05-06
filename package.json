@@ -1,0 +1,35 @@
+{
+  "name": "gnss_tracker",
+  "version": "1.0.0",
+  "description": "GNSS track app for edge devices and web browser",
+  "main": "js/main.js",
+    "scripts": {
+        "test":  "echo \"Error: no test specified\" && exit 1",
+        "debug": "test -d ./dist || mkdir ./dist; node node_modules/browserify/bin/cmd.js -t babelify --plugin tinyify ./js/main.js -d > ./dist/bundle.js",
+        "dist":  "test -d ./dist || mkdir ./dist; node node_modules/browserify/bin/cmd.js -t babelify --plugin tinyify ./js/main.js > ./dist/bundle.js",
+        "watch": "test -d ./dist || mkdir ./dist; node node_modules/watchify/bin/cmd.js ./js/main.js -o ./dist/bundle.js -d -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeancahu/GNSS_tracker.git"
+  },
+  "keywords": [
+    "gnss",
+    "track",
+    "gtfs"
+  ],
+  "author": "Jeancarlo Hidalgo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeancahu/GNSS_tracker/issues"
+  },
+  "homepage": "https://github.com/jeancahu/GNSS_tracker#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "tinyify": "^3.0.0",
+    "watchify": "^4.0.0"
+  }
+}
