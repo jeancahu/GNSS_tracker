@@ -14,7 +14,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    geoposition="latitude: " + position.coords.latitude +
+    var geoposition = "latitude: " + position.coords.latitude +
                 ", longitude: " + position.coords.longitude;
     console.log(geoposition);
     message = new mqtt.Message("client_id: "+client_id+", "+geoposition);
