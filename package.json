@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "GNSS track app for edge devices and web browser",
   "main": "js/main.js",
-    "scripts": {
-        "test":  "echo \"Error: no test specified\" && exit 1",
-        "debug": "test -d ./dist || mkdir ./dist; node node_modules/browserify/bin/cmd.js -t babelify --plugin tinyify ./js/main.js -d > ./dist/bundle.js",
-        "dist":  "test -d ./dist || mkdir ./dist; node node_modules/browserify/bin/cmd.js -t babelify --plugin tinyify ./js/main.js > ./dist/bundle.js",
-        "watch": "test -d ./dist || mkdir ./dist; node node_modules/watchify/bin/cmd.js ./js/main.js -o ./dist/bundle.js -d -v"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "test -d ./dist || mkdir ./dist; node node_modules/browserify/bin/cmd.js -t babelify --plugin tinyify ./js/main.js -d > ./dist/bundle.js",
+    "dist": "test -d ./dist || mkdir ./dist; node node_modules/browserify/bin/cmd.js -t babelify --plugin tinyify ./js/main.js > ./dist/bundle.js",
+    "watch": "test -d ./dist || mkdir ./dist; node node_modules/watchify/bin/cmd.js ./js/main.js -o ./dist/bundle.js -d -v"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,8 @@
     "browserify": "^17.0.0",
     "tinyify": "^3.0.0",
     "watchify": "^4.0.0"
+  },
+  "dependencies": {
+    "paho-mqtt": "^1.1.0"
   }
 }

@@ -1,4 +1,6 @@
-const broker_ip = '10.8.0.1';
+const mqtt = require('paho-mqtt');
+
+const broker_ip = '161.35.54.122';
 const broker_port = 9001;
 const client_id = "client js 1";
 
@@ -15,7 +17,7 @@ function showPosition(position) {
     geoposition="latitude: " + position.coords.latitude +
                 ", longitude: " + position.coords.longitude;
     console.log(geoposition);
-    message = new Paho.MQTT.Message("client_id: "+client_id+", "+geoposition);
+    message = new mqtt.Message("client_id: "+client_id+", "+geoposition);
     message.destinationName = "test/test1";
     try {
         client.send(message);
@@ -29,12 +31,12 @@ function showPosition(position) {
 
 function onConnect() {
     console.log("client connected");
-    message = new Paho.MQTT.Message("client: "+client_id+" is connected");
+    message = new mqtt.Message("client: "+client_id+" is connected");
     message.destinationName = "test/test1";
     client.send(message);
 }
 
-var client = new Paho.MQTT.Client(broker_ip, broker_port, client_id);
+var client = new mqtt.Client(broker_ip, broker_port, client_id);
 console.log("Connecting to "+broker_ip+" on port "+String(broker_port));
 client.connect({
     timeout: 3,
