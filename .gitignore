@@ -1,0 +1,4 @@
+simple-sidebar/*
+node_modules/*
+dist/*
+.parcel-cache/*

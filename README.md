@@ -1,6 +1,6 @@
 # GNSS_tracker
 
-## Instalation
+## Install
 
     apt update
     apt upgrade

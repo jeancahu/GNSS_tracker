@@ -5,9 +5,9 @@
   "main": "js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "test -d ./dist || mkdir ./dist; node node_modules/browserify/bin/cmd.js -t babelify --plugin esmify --plugin tinyify ./js/main.js -d > ./dist/bundle.js",
-    "dist": "test -d ./dist || mkdir ./dist; node node_modules/browserify/bin/cmd.js -t babelify --plugin esmify --plugin tinyify ./js/main.js > ./dist/bundle.js",
-    "watch": "test -d ./dist || mkdir ./dist; node node_modules/watchify/bin/cmd.js -p esmify ./js/main.js -o ./dist/bundle.js -d -v"
+    "debug": "browserify -t babelify --plugin esmify --plugin tinyify ./js/main.js -d --outfile ./dist/bundle.js",
+    "dist":  "browserify -t babelify --plugin esmify --plugin tinyify ./js/main.js --outfile ./dist/bundle.js",
+    "watch": "watchify -p esmify ./js/main.js -o ./dist/bundle.js -d -v"
   },
   "repository": {
     "type": "git",
