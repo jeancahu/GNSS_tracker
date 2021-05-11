@@ -1,44 +1,36 @@
-import Map from 'ol/Map';
-import View from 'ol/View';
-import OSM from 'ol/source/OSM';
-import Tile from 'ol/layer/Tile';
-
+const {streetElementGroup} = require('streetelement');
 import {fromLonLat, toLonLat} from 'ol/proj';
-import {defaults} from 'ol/control';
 
+//////////////////////////////////////////////////
+//       +++++++++
+//       +       +
+//       +  Map  +
+//       +       +
+// --->  @++++++++
+var extent_area =
+    fromLonLat([-84.43669241118701,9.726525930153954]
 
-//// Constrained map in the work area
-var view = new View({
-    center: fromLonLat([-84.1027104, 9.865107]),
-    zoom: 12
-    // [minx,miny,max,may]
-    //extent: extent_area,
-});
+              );
 
-// Map need a layers group
-// adding only base layer
-var map = new Map({
-    controls: defaults(
-        {attribution: false}),
-    layers: [
-	      new Tile({
-	          source: new OSM(),
-	      }),
-	      //vectorLayer,
-    ],
-    keyboardEventTarget: document,
-    //overlays: [overlay_node_info],
-    target: 'map-view',
-    view: view,
-});
+// ++++++++@ <---
+// +       +
+// +  Map  +
+// +       +
+// +++++++++
+extent_area = extent_area.concat(
+    fromLonLat([-83.72894500499169,9.99625455768836]
 
-map.on('click', (event)=> {
+              ));
+
+var o_se_group = new streetElementGroup([-84.1027104, 9.865107], extent_area);
+
+o_se_group.map.on('click', (event)=> {
     console.log("Click on map");
 
     var coordinate = toLonLat(event.coordinate);
     console.log("Coordinate on click: " + String(coordinate));
 
-    var feature_onHover = map.forEachFeatureAtPixel(
+    var feature_onHover = o_se_group.map.forEachFeatureAtPixel(
         event.pixel,
         function(feature, layer)
         {
@@ -50,3 +42,9 @@ map.on('click', (event)=> {
     }
 
 });
+
+o_se_group.map.setTarget('map-view');
+
+module.exports = { // FIXME temporal test
+    o_se_group
+}

@@ -5,9 +5,9 @@
   "main": "js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "browserify -t babelify --plugin esmify --plugin tinyify ./js/main.js -d --outfile ./dist/bundle.js",
-    "dist":  "browserify -t babelify --plugin esmify --plugin tinyify ./js/main.js --outfile ./dist/bundle.js",
-    "watch": "watchify -p esmify ./js/main.js -o ./dist/bundle.js -d -v"
+      "debug": "browserify -t babelify --plugin esmify --plugin tinyify --standalone bundle ./js/main.js -d --outfile ./dist/bundle.js",
+      "dist": "browserify -t babelify --plugin esmify --plugin tinyify --standalone bundle ./js/main.js --outfile ./dist/bundle.js",
+    "watch": "watchify -p esmify --standalone bundle ./js/main.js -o ./dist/bundle.js -d -v"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
     "watchify": "^4.0.0"
   },
   "dependencies": {
-    "ol": "^6.5.0",
-    "paho-mqtt": "^1.1.0"
+    "paho-mqtt": "^1.1.0",
+    "streetelement": "^0.2.2"
   }
 }
